@@ -1,0 +1,103 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:complexType name="schemaType">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="file" type="xs:string"/>
+                <xs:element name="config-name" type="xs:string"/>
+            </xs:choice>            
+            <xs:element name="schemarefs" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="schemaref" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:choice>
+                                        <xs:element name="file" type="xs:string"/>
+                                        <xs:element name="config-name" type="xs:string"/>
+                                    </xs:choice>
+                                </xs:sequence>
+                                <xs:attribute name="uri" type="xs:string" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="root" use="required" type="xs:string"/>
+        <xs:attribute name="type" >
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="messageTransformationType">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element name="script-file">
+                    <xs:complexType>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="project-file" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="jms-script-file" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:element name="transformation-config-name">
+                <xs:complexType>
+                    <xs:attribute name="name" use="required" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+        <xs:attribute name="factory" type="xs:string" default="org.apache.xalan.processor.TransformerFactoryImpl"/>
+    </xs:complexType>
+
+    <xs:complexType name="logmoduleType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="level" default="SEVERE">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="OFF"/>
+                    <xs:enumeration value="SEVERE"/>
+                    <xs:enumeration value="WARNING"/>
+                    <xs:enumeration value="INFO"/>
+                    <xs:enumeration value="CONFIG"/>
+                    <xs:enumeration value="FINE"/>
+                    <xs:enumeration value="FINER"/>
+                    <xs:enumeration value="FINEST"/>
+                    <xs:enumeration value="ALL"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="uniqueNameRequired" type="xs:boolean" default="true"/>
+    </xs:complexType>
+
+    <xs:complexType name="runtime-argumentType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="inmemory" type="xs:boolean" default="true"/>
+        <xs:attribute name="mandatory" type="xs:boolean" default="true"/>
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="type" default="java.lang.String" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="servicerefType">
+        <xs:attribute name="guid" use="required" type="xs:string"/>
+        <xs:attribute name="version" use="required" type="xs:float"/>
+    </xs:complexType>
+
+    
+</xs:schema>

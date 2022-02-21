@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_1_fields.xsd"/>
+    <xsd:complexType name="MSH.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH.1"/>
+            <xsd:element ref="MSH.2"/>
+            <xsd:element minOccurs="0" ref="MSH.3"/>
+            <xsd:element minOccurs="0" ref="MSH.4"/>
+            <xsd:element minOccurs="0" ref="MSH.5"/>
+            <xsd:element minOccurs="0" ref="MSH.6"/>
+            <xsd:element minOccurs="0" ref="MSH.7"/>
+            <xsd:element minOccurs="0" ref="MSH.8"/>
+            <xsd:element ref="MSH.9"/>
+            <xsd:element ref="MSH.10"/>
+            <xsd:element ref="MSH.11"/>
+            <xsd:element ref="MSH.12"/>
+            <xsd:element minOccurs="0" ref="MSH.13"/>
+            <xsd:element minOccurs="0" ref="MSH.14"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="MSH" type="MSH.CONTENT"/>
+    <xsd:complexType name="MSA.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSA.1"/>
+            <xsd:element ref="MSA.2"/>
+            <xsd:element minOccurs="0" ref="MSA.3"/>
+            <xsd:element minOccurs="0" ref="MSA.4"/>
+            <xsd:element minOccurs="0" ref="MSA.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="MSA" type="MSA.CONTENT"/>
+    <xsd:complexType name="ERR.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="ERR.1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ERR" type="ERR.CONTENT"/>
+    <xsd:complexType name="QRD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="QRD.1"/>
+            <xsd:element ref="QRD.2"/>
+            <xsd:element ref="QRD.3"/>
+            <xsd:element ref="QRD.4"/>
+            <xsd:element minOccurs="0" ref="QRD.5"/>
+            <xsd:element minOccurs="0" ref="QRD.6"/>
+            <xsd:element ref="QRD.7"/>
+            <xsd:element maxOccurs="unbounded" ref="QRD.8"/>
+            <xsd:element maxOccurs="unbounded" ref="QRD.9"/>
+            <xsd:element maxOccurs="unbounded" ref="QRD.10"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="QRD.11"/>
+            <xsd:element minOccurs="0" ref="QRD.12"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="QRD" type="QRD.CONTENT"/>
+    <xsd:complexType name="EVN.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="EVN.1"/>
+            <xsd:element ref="EVN.2"/>
+            <xsd:element minOccurs="0" ref="EVN.3"/>
+            <xsd:element minOccurs="0" ref="EVN.4"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="EVN" type="EVN.CONTENT"/>
+    <xsd:complexType name="PID.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="PID.1"/>
+            <xsd:element minOccurs="0" ref="PID.2"/>
+            <xsd:element ref="PID.3"/>
+            <xsd:element minOccurs="0" ref="PID.4"/>
+            <xsd:element ref="PID.5"/>
+            <xsd:element minOccurs="0" ref="PID.6"/>
+            <xsd:element minOccurs="0" ref="PID.7"/>
+            <xsd:element minOccurs="0" ref="PID.8"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PID.9"/>
+            <xsd:element minOccurs="0" ref="PID.10"/>
+            <xsd:element minOccurs="0" ref="PID.11"/>
+            <xsd:element minOccurs="0" ref="PID.12"/>
+            <xsd:element minOccurs="0" maxOccurs="3" ref="PID.13"/>
+            <xsd:element minOccurs="0" maxOccurs="3" ref="PID.14"/>
+            <xsd:element minOccurs="0" ref="PID.15"/>
+            <xsd:element minOccurs="0" ref="PID.16"/>
+            <xsd:element minOccurs="0" ref="PID.17"/>
+            <xsd:element minOccurs="0" ref="PID.18"/>
+            <xsd:element minOccurs="0" ref="PID.19"/>
+            <xsd:element minOccurs="0" ref="PID.20"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PID" type="PID.CONTENT"/>
+    <xsd:complexType name="PV1.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="PV1.1"/>
+            <xsd:element ref="PV1.2"/>
+            <xsd:element ref="PV1.3"/>
+            <xsd:element minOccurs="0" ref="PV1.4"/>
+            <xsd:element minOccurs="0" ref="PV1.5"/>
+            <xsd:element minOccurs="0" ref="PV1.6"/>
+            <xsd:element minOccurs="0" ref="PV1.7"/>
+            <xsd:element minOccurs="0" ref="PV1.8"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PV1.9"/>
+            <xsd:element minOccurs="0" ref="PV1.10"/>
+            <xsd:element minOccurs="0" ref="PV1.11"/>
+            <xsd:element minOccurs="0" ref="PV1.12"/>
+            <xsd:element minOccurs="0" ref="PV1.13"/>
+            <xsd:element minOccurs="0" ref="PV1.14"/>
+            <xsd:element minOccurs="0" ref="PV1.15"/>
+            <xsd:element minOccurs="0" ref="PV1.16"/>
+            <xsd:element minOccurs="0" ref="PV1.17"/>
+            <xsd:element minOccurs="0" ref="PV1.18"/>
+            <xsd:element minOccurs="0" ref="PV1.19"/>
+            <xsd:element minOccurs="0" maxOccurs="4" ref="PV1.20"/>
+            <xsd:element minOccurs="0" ref="PV1.21"/>
+            <xsd:element minOccurs="0" ref="PV1.22"/>
+            <xsd:element minOccurs="0" ref="PV1.23"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PV1.24"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PV1.25"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PV1.26"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PV1.27"/>
+            <xsd:element minOccurs="0" ref="PV1.28"/>
+            <xsd:element minOccurs="0" ref="PV1.29"/>
+            <xsd:element minOccurs="0" ref="PV1.30"/>
+            <xsd:element minOccurs="0" ref="PV1.31"/>
+            <xsd:element minOccurs="0" ref="PV1.32"/>
+            <xsd:element minOccurs="0" ref="PV1.33"/>
+            <xsd:element minOccurs="0" ref="PV1.34"/>
+            <xsd:element minOccurs="0" ref="PV1.35"/>
+            <xsd:element minOccurs="0" ref="PV1.36"/>
+            <xsd:element minOccurs="0" ref="PV1.37"/>
+            <xsd:element minOccurs="0" ref="PV1.38"/>
+            <xsd:element minOccurs="0" ref="PV1.39"/>
+            <xsd:element minOccurs="0" ref="PV1.40"/>
+            <xsd:element minOccurs="0" ref="PV1.41"/>
+            <xsd:element minOccurs="0" ref="PV1.42"/>
+            <xsd:element minOccurs="0" ref="PV1.43"/>
+            <xsd:element minOccurs="0" ref="PV1.44"/>
+            <xsd:element minOccurs="0" ref="PV1.45"/>
+            <xsd:element minOccurs="0" ref="PV1.46"/>
+            <xsd:element minOccurs="0" ref="PV1.47"/>
+            <xsd:element minOccurs="0" ref="PV1.48"/>
+            <xsd:element minOccurs="0" ref="PV1.49"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PV1" type="PV1.CONTENT"/>
+    <xsd:complexType name="DSC.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="DSC.1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DSC" type="DSC.CONTENT"/>
+    <xsd:complexType name="NK1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="NK1.1"/>
+            <xsd:element minOccurs="0" ref="NK1.2"/>
+            <xsd:element minOccurs="0" ref="NK1.3"/>
+            <xsd:element minOccurs="0" ref="NK1.4"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="NK1" type="NK1.CONTENT"/>
+    <xsd:complexType name="DG1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="DG1.1"/>
+            <xsd:element ref="DG1.2"/>
+            <xsd:element minOccurs="0" ref="DG1.3"/>
+            <xsd:element minOccurs="0" ref="DG1.4"/>
+            <xsd:element minOccurs="0" ref="DG1.5"/>
+            <xsd:element ref="DG1.6"/>
+            <xsd:element minOccurs="0" ref="DG1.7"/>
+            <xsd:element minOccurs="0" ref="DG1.8"/>
+            <xsd:element minOccurs="0" ref="DG1.9"/>
+            <xsd:element minOccurs="0" ref="DG1.10"/>
+            <xsd:element minOccurs="0" ref="DG1.11"/>
+            <xsd:element minOccurs="0" ref="DG1.12"/>
+            <xsd:element minOccurs="0" ref="DG1.13"/>
+            <xsd:element minOccurs="0" ref="DG1.14"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DG1" type="DG1.CONTENT"/>
+    <xsd:complexType name="PD1.CONTENT">
+        <xsd:sequence/>
+    </xsd:complexType>
+    <xsd:element name="PD1" type="PD1.CONTENT"/>
+    <xsd:complexType name="MRG.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MRG.1"/>
+            <xsd:element minOccurs="0" ref="MRG.2"/>
+            <xsd:element minOccurs="0" ref="MRG.3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="MRG" type="MRG.CONTENT"/>
+    <xsd:complexType name="NPU.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="NPU.1"/>
+            <xsd:element minOccurs="0" ref="NPU.2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="NPU" type="NPU.CONTENT"/>
+    <xsd:complexType name="PR1.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="PR1.1"/>
+            <xsd:element ref="PR1.2"/>
+            <xsd:element ref="PR1.3"/>
+            <xsd:element minOccurs="0" ref="PR1.4"/>
+            <xsd:element ref="PR1.5"/>
+            <xsd:element ref="PR1.6"/>
+            <xsd:element minOccurs="0" ref="PR1.7"/>
+            <xsd:element minOccurs="0" ref="PR1.8"/>
+            <xsd:element minOccurs="0" ref="PR1.9"/>
+            <xsd:element minOccurs="0" ref="PR1.10"/>
+            <xsd:element minOccurs="0" ref="PR1.11"/>
+            <xsd:element minOccurs="0" ref="PR1.12"/>
+            <xsd:element minOccurs="0" ref="PR1.13"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PR1" type="PR1.CONTENT"/>
+    <xsd:complexType name="GT1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="GT1.1"/>
+            <xsd:element minOccurs="0" ref="GT1.2"/>
+            <xsd:element ref="GT1.3"/>
+            <xsd:element minOccurs="0" ref="GT1.4"/>
+            <xsd:element minOccurs="0" ref="GT1.5"/>
+            <xsd:element minOccurs="0" ref="GT1.6"/>
+            <xsd:element minOccurs="0" ref="GT1.7"/>
+            <xsd:element minOccurs="0" ref="GT1.8"/>
+            <xsd:element minOccurs="0" ref="GT1.9"/>
+            <xsd:element minOccurs="0" ref="GT1.10"/>
+            <xsd:element minOccurs="0" ref="GT1.11"/>
+            <xsd:element minOccurs="0" ref="GT1.12"/>
+            <xsd:element minOccurs="0" ref="GT1.13"/>
+            <xsd:element minOccurs="0" ref="GT1.14"/>
+            <xsd:element minOccurs="0" ref="GT1.15"/>
+            <xsd:element minOccurs="0" ref="GT1.16"/>
+            <xsd:element minOccurs="0" ref="GT1.17"/>
+            <xsd:element minOccurs="0" ref="GT1.18"/>
+            <xsd:element minOccurs="0" ref="GT1.19"/>
+            <xsd:element minOccurs="0" ref="GT1.20"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GT1" type="GT1.CONTENT"/>
+    <xsd:complexType name="IN1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1.1"/>
+            <xsd:element ref="IN1.2"/>
+            <xsd:element ref="IN1.3"/>
+            <xsd:element minOccurs="0" ref="IN1.4"/>
+            <xsd:element minOccurs="0" ref="IN1.5"/>
+            <xsd:element minOccurs="0" ref="IN1.6"/>
+            <xsd:element minOccurs="0" ref="IN1.7"/>
+            <xsd:element minOccurs="0" ref="IN1.8"/>
+            <xsd:element minOccurs="0" ref="IN1.9"/>
+            <xsd:element minOccurs="0" ref="IN1.10"/>
+            <xsd:element minOccurs="0" ref="IN1.11"/>
+            <xsd:element minOccurs="0" ref="IN1.12"/>
+            <xsd:element minOccurs="0" ref="IN1.13"/>
+            <xsd:element minOccurs="0" ref="IN1.14"/>
+            <xsd:element minOccurs="0" ref="IN1.15"/>
+            <xsd:element minOccurs="0" ref="IN1.16"/>
+            <xsd:element minOccurs="0" ref="IN1.17"/>
+            <xsd:element minOccurs="0" ref="IN1.18"/>
+            <xsd:element minOccurs="0" ref="IN1.19"/>
+            <xsd:element minOccurs="0" ref="IN1.20"/>
+            <xsd:element minOccurs="0" ref="IN1.21"/>
+            <xsd:element minOccurs="0" ref="IN1.22"/>
+            <xsd:element minOccurs="0" ref="IN1.23"/>
+            <xsd:element minOccurs="0" ref="IN1.24"/>
+            <xsd:element minOccurs="0" ref="IN1.25"/>
+            <xsd:element minOccurs="0" ref="IN1.26"/>
+            <xsd:element minOccurs="0" ref="IN1.27"/>
+            <xsd:element minOccurs="0" ref="IN1.28"/>
+            <xsd:element minOccurs="0" ref="IN1.29"/>
+            <xsd:element minOccurs="0" ref="IN1.30"/>
+            <xsd:element minOccurs="0" ref="IN1.31"/>
+            <xsd:element minOccurs="0" ref="IN1.32"/>
+            <xsd:element minOccurs="0" ref="IN1.33"/>
+            <xsd:element minOccurs="0" ref="IN1.34"/>
+            <xsd:element minOccurs="0" ref="IN1.35"/>
+            <xsd:element minOccurs="0" ref="IN1.36"/>
+            <xsd:element minOccurs="0" ref="IN1.37"/>
+            <xsd:element minOccurs="0" ref="IN1.38"/>
+            <xsd:element minOccurs="0" ref="IN1.39"/>
+            <xsd:element minOccurs="0" ref="IN1.40"/>
+            <xsd:element minOccurs="0" ref="IN1.41"/>
+            <xsd:element minOccurs="0" ref="IN1.42"/>
+            <xsd:element minOccurs="0" ref="IN1.43"/>
+            <xsd:element minOccurs="0" ref="IN1.44"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="IN1" type="IN1.CONTENT"/>
+    <xsd:complexType name="ACC.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ACC.1"/>
+            <xsd:element minOccurs="0" ref="ACC.2"/>
+            <xsd:element minOccurs="0" ref="ACC.3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ACC" type="ACC.CONTENT"/>
+    <xsd:complexType name="UB1.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="UB1.1"/>
+            <xsd:element minOccurs="0" ref="UB1.2"/>
+            <xsd:element minOccurs="0" ref="UB1.3"/>
+            <xsd:element minOccurs="0" ref="UB1.4"/>
+            <xsd:element minOccurs="0" ref="UB1.5"/>
+            <xsd:element minOccurs="0" ref="UB1.6"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="UB1.7"/>
+            <xsd:element minOccurs="0" ref="UB1.8"/>
+            <xsd:element minOccurs="0" ref="UB1.9"/>
+            <xsd:element minOccurs="0" maxOccurs="8" ref="UB1.10"/>
+            <xsd:element minOccurs="0" ref="UB1.11"/>
+            <xsd:element minOccurs="0" ref="UB1.12"/>
+            <xsd:element minOccurs="0" ref="UB1.13"/>
+            <xsd:element minOccurs="0" ref="UB1.14"/>
+            <xsd:element minOccurs="0" ref="UB1.15"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="UB1.16"/>
+            <xsd:element minOccurs="0" ref="UB1.17"/>
+            <xsd:element minOccurs="0" ref="UB1.18"/>
+            <xsd:element minOccurs="0" ref="UB1.19"/>
+            <xsd:element minOccurs="0" ref="UB1.20"/>
+            <xsd:element minOccurs="0" ref="UB1.21"/>
+            <xsd:element minOccurs="0" ref="UB1.22"/>
+            <xsd:element minOccurs="0" ref="UB1.23"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UB1" type="UB1.CONTENT"/>
+    <xsd:complexType name="FT1.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="FT1.1"/>
+            <xsd:element minOccurs="0" ref="FT1.2"/>
+            <xsd:element minOccurs="0" ref="FT1.3"/>
+            <xsd:element ref="FT1.4"/>
+            <xsd:element minOccurs="0" ref="FT1.5"/>
+            <xsd:element ref="FT1.6"/>
+            <xsd:element ref="FT1.7"/>
+            <xsd:element minOccurs="0" ref="FT1.8"/>
+            <xsd:element minOccurs="0" ref="FT1.9"/>
+            <xsd:element minOccurs="0" ref="FT1.10"/>
+            <xsd:element minOccurs="0" ref="FT1.11"/>
+            <xsd:element minOccurs="0" ref="FT1.12"/>
+            <xsd:element minOccurs="0" ref="FT1.13"/>
+            <xsd:element minOccurs="0" ref="FT1.14"/>
+            <xsd:element minOccurs="0" ref="FT1.15"/>
+            <xsd:element minOccurs="0" ref="FT1.16"/>
+            <xsd:element minOccurs="0" ref="FT1.17"/>
+            <xsd:element minOccurs="0" ref="FT1.18"/>
+            <xsd:element minOccurs="0" ref="FT1.19"/>
+            <xsd:element minOccurs="0" ref="FT1.20"/>
+            <xsd:element minOccurs="0" ref="FT1.21"/>
+            <xsd:element minOccurs="0" ref="FT1.22"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FT1" type="FT1.CONTENT"/>
+    <xsd:complexType name="QRF.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="QRF.1"/>
+            <xsd:element minOccurs="0" ref="QRF.2"/>
+            <xsd:element minOccurs="0" ref="QRF.3"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="QRF.4"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="QRF.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="QRF" type="QRF.CONTENT"/>
+    <xsd:complexType name="DSP.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="DSP.1"/>
+            <xsd:element minOccurs="0" ref="DSP.2"/>
+            <xsd:element ref="DSP.3"/>
+            <xsd:element minOccurs="0" ref="DSP.4"/>
+            <xsd:element minOccurs="0" ref="DSP.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DSP" type="DSP.CONTENT"/>
+    <xsd:complexType name="NTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="NTE.1"/>
+            <xsd:element minOccurs="0" ref="NTE.2"/>
+            <xsd:element maxOccurs="unbounded" ref="NTE.3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="NTE" type="NTE.CONTENT"/>
+    <xsd:complexType name="ORC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC.1"/>
+            <xsd:element minOccurs="0" ref="ORC.2"/>
+            <xsd:element minOccurs="0" ref="ORC.3"/>
+            <xsd:element minOccurs="0" ref="ORC.4"/>
+            <xsd:element minOccurs="0" ref="ORC.5"/>
+            <xsd:element minOccurs="0" ref="ORC.6"/>
+            <xsd:element minOccurs="0" ref="ORC.7"/>
+            <xsd:element minOccurs="0" ref="ORC.8"/>
+            <xsd:element minOccurs="0" ref="ORC.9"/>
+            <xsd:element minOccurs="0" ref="ORC.10"/>
+            <xsd:element minOccurs="0" ref="ORC.11"/>
+            <xsd:element minOccurs="0" ref="ORC.12"/>
+            <xsd:element minOccurs="0" ref="ORC.13"/>
+            <xsd:element minOccurs="0" maxOccurs="2" ref="ORC.14"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORC" type="ORC.CONTENT"/>
+    <xsd:complexType name="OBR.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="OBR.1"/>
+            <xsd:element minOccurs="0" ref="OBR.2"/>
+            <xsd:element minOccurs="0" ref="OBR.3"/>
+            <xsd:element ref="OBR.4"/>
+            <xsd:element minOccurs="0" ref="OBR.5"/>
+            <xsd:element minOccurs="0" ref="OBR.6"/>
+            <xsd:element ref="OBR.7"/>
+            <xsd:element ref="OBR.8"/>
+            <xsd:element ref="OBR.9"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OBR.10"/>
+            <xsd:element minOccurs="0" ref="OBR.11"/>
+            <xsd:element minOccurs="0" ref="OBR.12"/>
+            <xsd:element minOccurs="0" ref="OBR.13"/>
+            <xsd:element ref="OBR.14"/>
+            <xsd:element minOccurs="0" ref="OBR.15"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OBR.16"/>
+            <xsd:element minOccurs="0" maxOccurs="2" ref="OBR.17"/>
+            <xsd:element minOccurs="0" ref="OBR.18"/>
+            <xsd:element minOccurs="0" ref="OBR.19"/>
+            <xsd:element minOccurs="0" ref="OBR.20"/>
+            <xsd:element minOccurs="0" ref="OBR.21"/>
+            <xsd:element ref="OBR.22"/>
+            <xsd:element minOccurs="0" ref="OBR.23"/>
+            <xsd:element minOccurs="0" ref="OBR.24"/>
+            <xsd:element minOccurs="0" ref="OBR.25"/>
+            <xsd:element minOccurs="0" ref="OBR.26"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OBR.27"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="OBR.28"/>
+            <xsd:element minOccurs="0" ref="OBR.29"/>
+            <xsd:element minOccurs="0" ref="OBR.30"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OBR.31"/>
+            <xsd:element minOccurs="0" ref="OBR.32"/>
+            <xsd:element minOccurs="0" ref="OBR.33"/>
+            <xsd:element minOccurs="0" ref="OBR.34"/>
+            <xsd:element minOccurs="0" ref="OBR.35"/>
+            <xsd:element minOccurs="0" ref="OBR.36"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OBR" type="OBR.CONTENT"/>
+    <xsd:complexType name="ORO.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ORO.1"/>
+            <xsd:element minOccurs="0" ref="ORO.2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ORO.3"/>
+            <xsd:element minOccurs="0" ref="ORO.4"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORO" type="ORO.CONTENT"/>
+    <xsd:complexType name="RX1.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="RX1.1"/>
+            <xsd:element minOccurs="0" ref="RX1.2"/>
+            <xsd:element minOccurs="0" ref="RX1.3"/>
+            <xsd:element minOccurs="0" ref="RX1.4"/>
+            <xsd:element minOccurs="0" ref="RX1.5"/>
+            <xsd:element minOccurs="0" ref="RX1.6"/>
+            <xsd:element minOccurs="0" ref="RX1.7"/>
+            <xsd:element minOccurs="0" ref="RX1.8"/>
+            <xsd:element minOccurs="0" ref="RX1.9"/>
+            <xsd:element minOccurs="0" ref="RX1.10"/>
+            <xsd:element minOccurs="0" ref="RX1.11"/>
+            <xsd:element minOccurs="0" ref="RX1.12"/>
+            <xsd:element minOccurs="0" ref="RX1.13"/>
+            <xsd:element minOccurs="0" ref="RX1.14"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="RX1.15"/>
+            <xsd:element minOccurs="0" ref="RX1.16"/>
+            <xsd:element minOccurs="0" ref="RX1.17"/>
+            <xsd:element minOccurs="0" ref="RX1.18"/>
+            <xsd:element minOccurs="0" ref="RX1.19"/>
+            <xsd:element minOccurs="0" ref="RX1.20"/>
+            <xsd:element minOccurs="0" ref="RX1.21"/>
+            <xsd:element minOccurs="0" ref="RX1.22"/>
+            <xsd:element minOccurs="0" ref="RX1.23"/>
+            <xsd:element minOccurs="0" ref="RX1.24"/>
+            <xsd:element minOccurs="0" ref="RX1.25"/>
+            <xsd:element minOccurs="0" ref="RX1.26"/>
+            <xsd:element minOccurs="0" ref="RX1.27"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="RX1.28"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="RX1.29"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RX1.30"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RX1" type="RX1.CONTENT"/>
+    <xsd:complexType name="OBX.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="OBX.1"/>
+            <xsd:element minOccurs="0" ref="OBX.2"/>
+            <xsd:element ref="OBX.3"/>
+            <xsd:element minOccurs="0" ref="OBX.4"/>
+            <xsd:element ref="OBX.5"/>
+            <xsd:element minOccurs="0" ref="OBX.6"/>
+            <xsd:element minOccurs="0" ref="OBX.7"/>
+            <xsd:element minOccurs="0" maxOccurs="5" ref="OBX.8"/>
+            <xsd:element minOccurs="0" ref="OBX.9"/>
+            <xsd:element minOccurs="0" ref="OBX.10"/>
+            <xsd:element minOccurs="0" ref="OBX.11"/>
+            <xsd:element minOccurs="0" ref="OBX.12"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OBX" type="OBX.CONTENT"/>
+    <xsd:complexType name="BLG.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="BLG.1"/>
+            <xsd:element minOccurs="0" ref="BLG.2"/>
+            <xsd:element minOccurs="0" ref="BLG.3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="BLG" type="BLG.CONTENT"/>
+    <xsd:complexType name="URD.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="URD.1"/>
+            <xsd:element minOccurs="0" ref="URD.2"/>
+            <xsd:element maxOccurs="unbounded" ref="URD.3"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="URD.4"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="URD.5"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="URD.6"/>
+            <xsd:element minOccurs="0" ref="URD.7"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="URD" type="URD.CONTENT"/>
+    <xsd:complexType name="URS.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="URS.1"/>
+            <xsd:element minOccurs="0" ref="URS.2"/>
+            <xsd:element minOccurs="0" ref="URS.3"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="URS.4"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="URS.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="URS" type="URS.CONTENT"/>
+</xsd:schema>

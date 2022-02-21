@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="RRO_O02.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="ERR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="RRO_O02.PIDNTEORCRXONTERXRRXCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRO_O02" type="RRO_O02.CONTENT"/>
+    <xsd:complexType name="RRO_O02.PIDNTEORCRXONTERXRRXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="RRO_O02.PIDNTE"/>
+            <xsd:element maxOccurs="unbounded" ref="RRO_O02.ORCRXONTERXRRXCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRO_O02.PIDNTEORCRXONTERXRRXCNTE" type="RRO_O02.PIDNTEORCRXONTERXRRXCNTE.CONTENT"/>
+    <xsd:complexType name="RRO_O02.PIDNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRO_O02.PIDNTE" type="RRO_O02.PIDNTE.CONTENT"/>
+    <xsd:complexType name="RRO_O02.ORCRXONTERXRRXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="RRO_O02.RXONTERXRRXCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRO_O02.ORCRXONTERXRRXCNTE" type="RRO_O02.ORCRXONTERXRRXCNTE.CONTENT"/>
+    <xsd:complexType name="RRO_O02.RXONTERXRRXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXO"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRO_O02.RXONTERXRRXCNTE" type="RRO_O02.RXONTERXRRXCNTE.CONTENT"/>
+</xsd:schema>

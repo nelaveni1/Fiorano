@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="publisher">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messages" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="compress" type="xs:boolean"/>
+						<xs:attribute name="persistent" type="xs:boolean"/>
+						<xs:attribute name="priority" default="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="time-to-live" default="0" type="xs:long"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_segments.xsd"/>
+    <xsd:complexType name="RDS_O01.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.PATIENT"/>
+            <xsd:element maxOccurs="unbounded" ref="RDS_O01.ORDER"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01" type="RDS_O01.CONTENT"/>
+    <xsd:complexType name="RDS_O01.PATIENT.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PD1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.PATIENT_VISIT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.PATIENT" type="RDS_O01.PATIENT.CONTENT"/>
+    <xsd:complexType name="RDS_O01.PATIENT_VISIT.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.PATIENT_VISIT" type="RDS_O01.PATIENT_VISIT.CONTENT"/>
+    <xsd:complexType name="RDS_O01.ORDER.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.ORDER_DETAIL"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.ENCODING"/>
+            <xsd:element ref="RXD"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+            <xsd:element maxOccurs="unbounded" ref="RDS_O01.OBSERVATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.ORDER" type="RDS_O01.ORDER.CONTENT"/>
+    <xsd:complexType name="RDS_O01.ORDER_DETAIL.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXO"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.ORDER_DETAIL_SUPPLEMENT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.ORDER_DETAIL" type="RDS_O01.ORDER_DETAIL.CONTENT"/>
+    <xsd:complexType name="RDS_O01.ORDER_DETAIL_SUPPLEMENT.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" ref="RDS_O01.COMPONENT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.ORDER_DETAIL_SUPPLEMENT" type="RDS_O01.ORDER_DETAIL_SUPPLEMENT.CONTENT"/>
+    <xsd:complexType name="RDS_O01.COMPONENT.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="RXC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.COMPONENT" type="RDS_O01.COMPONENT.CONTENT"/>
+    <xsd:complexType name="RDS_O01.ENCODING.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.ENCODING" type="RDS_O01.ENCODING.CONTENT"/>
+    <xsd:complexType name="RDS_O01.OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RDS_O01.OBSERVATION" type="RDS_O01.OBSERVATION.CONTENT"/>
+</xsd:schema>

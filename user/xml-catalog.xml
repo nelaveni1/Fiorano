@@ -1,0 +1,6 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public">
+   <uri name="urn:fault.partner.soap.sforce.com" uri="faultpartner.xsd"/>
+   <uri name="urn:partner.soap.sforce.com" uri="sforcepartner.xsd"/>
+   <uri name="urn:sobject.partner.soap.sforce.com" uri="sforcepartnerfault.xsd"/>
+</catalog>

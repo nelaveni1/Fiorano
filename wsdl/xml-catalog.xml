@@ -1,0 +1,38 @@
+<!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.0//EN"
+         "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+         
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public">
+
+    <uri name="http://schemas.xmlsoap.org/wsdl/"
+         uri="wsdl.xsd"/>
+         
+    <uri name="http://schemas.xmlsoap.org/wsdl/soap/"
+         uri="soap.xsd"/>
+         
+    <uri name="http://schemas.xmlsoap.org/soap/encoding/"
+         uri="soapenc.xsd"/>
+      
+    <uri name="http://schemas.xmlsoap.org/soap/envelope/"
+         uri="soapenv.xsd"/>
+
+    <uri name="http://schemas.xmlsoap.org/wsdl/http/"
+         uri="http.xsd"/>
+
+    <uri name="http://schemas.xmlsoap.org/wsdl/mime/"
+         uri="mime.xsd"/>
+
+    <uri name="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+         uri="wsaddressing.xsd"/>
+		 
+	<uri name="http://www.w3.org/2005/08/addressing"
+         uri="wsaddressing-2005.xsd"/>		 
+
+    <uri name="http://www.w3.org/2003/05/soap-envelope"
+         uri="soapenv12.xsd"/>
+
+    <uri name="http://www.w3.org/XML/1998/namespace"
+         uri="xml.xsd"/>
+         
+</catalog>

@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="common.xsd"/>
+    <xs:include schemaLocation="messaging.xsd"/>
+    <xs:include schemaLocation="selectors.xsd"/>
+    <xs:element name="routes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="route" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="route">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="source" type="routeEndPoint"/>
+                <xs:element name="target" type="routeEndPoint"/>
+                <xs:element name="short-description" type="xs:string" minOccurs="0"/>
+                <xs:element name="long-description" type="xs:string" minOccurs="0"/>
+                <xs:choice>
+                    <xs:element ref="messages" minOccurs="0"/>
+                    <xs:element name="messaging-config-name" minOccurs="0">
+                        <xs:complexType>
+                            <xs:attribute name="name" use="required" type="xs:string"/>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
+                <xs:element name="message-transformation" type="messageTransformationType" minOccurs="0"/>
+                <xs:choice>
+                    <xs:element ref="selectors" minOccurs="0"/>
+                    <xs:element name="selector-config-name">
+                        <xs:complexType>
+                            <xs:attribute name="name" use="required" type="xs:string"/>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="displayName" type="xs:string"/>
+            <xs:attribute name="name" use="required">
+            	<xs:simpleType>
+            		<xs:restriction base="xs:string"> 
+            			<xs:pattern value="[a-zA-Z0-9_]+" />
+            		</xs:restriction>
+            	</xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="ignoreAbsenceOfTransformation" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="routeEndPoint">
+        <xs:attribute name="inst" type="xs:string"/>
+        <xs:attribute name="port" type="xs:string" />
+    </xs:complexType>
+</xs:schema>

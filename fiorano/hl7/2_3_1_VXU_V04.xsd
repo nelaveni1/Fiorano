@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="VXU_V04.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PD1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1"/>
+            <xsd:element minOccurs="0" ref="VXU_V04.PV1PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VXU_V04.IN1IN2IN3"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VXU_V04.ORCRXARXROBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VXU_V04" type="VXU_V04.CONTENT"/>
+    <xsd:complexType name="VXU_V04.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VXU_V04.PV1PV2" type="VXU_V04.PV1PV2.CONTENT"/>
+    <xsd:complexType name="VXU_V04.IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VXU_V04.IN1IN2IN3" type="VXU_V04.IN1IN2IN3.CONTENT"/>
+    <xsd:complexType name="VXU_V04.ORCRXARXROBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ORC"/>
+            <xsd:element ref="RXA"/>
+            <xsd:element minOccurs="0" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VXU_V04.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VXU_V04.ORCRXARXROBXNTE" type="VXU_V04.ORCRXARXROBXNTE.CONTENT"/>
+    <xsd:complexType name="VXU_V04.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VXU_V04.OBXNTE" type="VXU_V04.OBXNTE.CONTENT"/>
+</xsd:schema>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:include schemaLocation="common.xsd"/>
+    
+    <xs:element name="service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="display">
+                    <xs:complexType>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+                        <xs:attribute name="categories" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="icon" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="small" use="optional" type="xs:string"/>
+                        <xs:attribute name="large" use="optional" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="creation">
+                    <xs:complexType>
+                        <xs:attribute name="date" use="required" type="xs:string"/>
+                        <xs:attribute name="last-modified" use="required" type="xs:string"/>
+                        <xs:attribute name="authors" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+
+
+                <xs:element name="short-description" type="xs:string" minOccurs="0"/>
+                <xs:element name="long-description" type="xs:string" minOccurs="0"/>
+
+                <xs:element name="deployment">
+                    <xs:complexType>
+
+                        <xs:sequence>
+                            <xs:element name="resources" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="resource" type="resourceType" minOccurs="1" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+
+
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="servicerefs" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="serviceref" type="servicerefType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="label" use="required" type="xs:string"/>
+                        <xs:attribute name="os" use="optional" default="0" type="xs:int"/>
+                        <xs:attribute name="auto-installable" use="optional" default="true" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="execution" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ccp" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="min-version-supported" use="required" type="xs:float"/>
+                                    <xs:attribute name="max-version-supported" use="required" type="xs:float"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="launchtype">
+                                <xs:complexType>
+                                    <xs:attribute name="supported" use="optional" default="3" type="xs:int"/>
+                                    <xs:attribute name="preferred" use="optional" default="1" type="xs:int"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="separate-process" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="executable" use="required" type="xs:string"/>
+                                    <xs:attribute name="working-directory" use="optional" default="." type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="inmemory" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="executable" use="required" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="cps" type="cpsType" minOccurs="0"/>
+
+                            <xs:element name="input-ports" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="port" type="portType" minOccurs="1" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="output-ports" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="port" type="portType" minOccurs="1" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="exception-port" use="optional" default="true" type="xs:boolean"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="logmodules" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="logmodule" type="logmoduleType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="runtime-arguments" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="runtime-argument" type="runtime-argumentType" minOccurs="1" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="type" use="optional" default="0" type="xs:int"/>
+                        <xs:attribute name="subtype" use="optional" default="jca" type="xs:string"/>
+                        <xs:attribute name="failover" use="optional" default="true" type="xs:boolean"/>
+                        <xs:attribute name="transaction" use="optional" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+
+
+            </xs:sequence>
+            <xs:attribute name="guid" use="required" type="xs:string"/>
+            <xs:attribute name="version" use="required" type="xs:string"/>
+            <xs:attribute name="licensed" use="optional" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="resourceType">
+        <xs:sequence>
+
+            <xs:element name="required" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="configuration" use="optional" default="true" type="xs:boolean"/>
+                    <xs:attribute name="execution" use="optional" default="true" type="xs:boolean"/>
+                </xs:complexType>
+            </xs:element>
+
+        </xs:sequence>
+
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="transfer-mode" use="optional" default="1" type="xs:int"/>
+        <xs:attribute name="os" use="optional" default="0" type="xs:int"/>
+    </xs:complexType>
+
+
+
+
+    <xs:complexType name="cpsType">
+        <xs:sequence>
+            <xs:element name="launcher" type="xs:string" minOccurs="1"/>
+            <xs:element name="default-value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="mandatory" use="optional" default="true" type="xs:boolean"/>
+        <xs:attribute name="inmemory-launchable" use="optional" default="true" type="xs:boolean"/>
+    </xs:complexType>
+
+    <xs:complexType name="portType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="schema" type="schemaType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="request-reply" use="optional" type="xs:boolean"/>
+    </xs:complexType>
+
+    
+
+</xs:schema>

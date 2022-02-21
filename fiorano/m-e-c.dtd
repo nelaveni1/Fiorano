@@ -1,0 +1,44 @@
+<!ELEMENT Message ( SegmentGroup | Segment )+ >
+<!ATTLIST Message standard CDATA #REQUIRED>
+<!ATTLIST Message version CDATA #REQUIRED>
+<!ATTLIST Message release CDATA #REQUIRED>
+<!ATTLIST Message name CDATA #REQUIRED>
+<!ATTLIST Message description CDATA #IMPLIED>
+<!ATTLIST Message minRepeat CDATA '0'>
+<!ATTLIST Message maxRepeat CDATA '1'>
+<!ATTLIST Message hideElement CDATA #IMPLIED>
+<!ATTLIST Message enableMissValue CDATA #IMPLIED>
+<!ATTLIST Message escape CDATA #IMPLIED>
+<!ELEMENT SegmentGroup (SegmentGroup | Segment )+ >
+<!ATTLIST SegmentGroup name CDATA #REQUIRED>
+<!ATTLIST SegmentGroup id CDATA #REQUIRED>
+<!ATTLIST SegmentGroup description CDATA #IMPLIED>
+<!ATTLIST SegmentGroup minRepeat CDATA '0'>
+<!ATTLIST SegmentGroup maxRepeat CDATA '1'>
+<!ATTLIST SegmentGroup hideElement CDATA #IMPLIED>
+<!ELEMENT Segment (DataElementGroup | DataElement )+ >
+<!ATTLIST Segment name CDATA #REQUIRED>
+<!ATTLIST Segment id CDATA #REQUIRED>
+<!ATTLIST Segment description CDATA #IMPLIED>
+<!ATTLIST Segment minRepeat CDATA '0'>
+<!ATTLIST Segment maxRepeat CDATA '1'>
+<!ATTLIST Segment delimiter CDATA #IMPLIED>
+<!ATTLIST Segment hideElement CDATA #IMPLIED>
+<!ELEMENT DataElementGroup ( DataElementGroup | DataElement )+ >
+<!ATTLIST DataElementGroup name CDATA #REQUIRED>
+<!ATTLIST DataElementGroup description CDATA #IMPLIED>
+<!ATTLIST DataElementGroup minRepeat CDATA '0'>
+<!ATTLIST DataElementGroup maxRepeat CDATA '1'>
+<!ATTLIST DataElementGroup delimiter CDATA #IMPLIED>
+<!ATTLIST DataElementGroup hideElement CDATA #IMPLIED>
+<!ELEMENT DataElement EMPTY>
+<!ATTLIST DataElement name CDATA #REQUIRED>
+<!ATTLIST DataElement description CDATA #IMPLIED>
+<!ATTLIST DataElement type CDATA #IMPLIED>
+<!ATTLIST DataElement minRepeat CDATA '0'>
+<!ATTLIST DataElement maxRepeat CDATA '1'>
+<!ATTLIST DataElement minLength CDATA '0'>
+<!ATTLIST DataElement maxLength CDATA '0'>
+<!ATTLIST DataElement delimiter CDATA #IMPLIED>
+<!ATTLIST DataElement default CDATA #IMPLIED>
+<!ATTLIST DataElement hideElement CDATA #IMPLIED>

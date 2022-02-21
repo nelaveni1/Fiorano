@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="PPP_PCB.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PPP_PCB.PV1PV2"/>
+            <xsd:element maxOccurs="unbounded" ref="PPP_PCB.PTHNTEVARROLVARPRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB" type="PPP_PCB.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.PV1PV2" type="PPP_PCB.PV1PV2.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.PTHNTEVARROLVARPRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PTH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.ROLVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.PRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.PTHNTEVARROLVARPRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR" type="PPP_PCB.PTHNTEVARROLVARPRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.ROLVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ROL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.ROLVAR" type="PPP_PCB.ROLVAR.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.PRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRB"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.ROLVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.OBXNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.GOLNTEVARROLVAROBXNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.ORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.PRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR" type="PPP_PCB.PRBNTEVARROLVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.OBXNTE" type="PPP_PCB.OBXNTE.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.GOLNTEVARROLVAROBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="GOL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.ROLVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.GOLNTEVARROLVAROBXNTE" type="PPP_PCB.GOLNTEVARROLVAROBXNTE.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.ORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="PPP_PCB.OBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.ORCOBRRXONTEVAROBXNTEVAR" type="PPP_PCB.ORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.OBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element ref="RXO"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCB.OBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.OBRRXONTEVAROBXNTEVAR" type="PPP_PCB.OBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PPP_PCB.OBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCB.OBXNTEVAR" type="PPP_PCB.OBXNTEVAR.CONTENT"/>
+</xsd:schema>

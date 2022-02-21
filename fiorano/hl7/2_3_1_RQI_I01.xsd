@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="RQI_I01.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element maxOccurs="unbounded" ref="RQI_I01.PRDCTD"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1"/>
+            <xsd:element minOccurs="0" ref="RQI_I01.GT1IN1IN2IN3"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RQI_I01" type="RQI_I01.CONTENT"/>
+    <xsd:complexType name="RQI_I01.PRDCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RQI_I01.PRDCTD" type="RQI_I01.PRDCTD.CONTENT"/>
+    <xsd:complexType name="RQI_I01.GT1IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GT1"/>
+            <xsd:element maxOccurs="unbounded" ref="RQI_I01.IN1IN2IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RQI_I01.GT1IN1IN2IN3" type="RQI_I01.GT1IN1IN2IN3.CONTENT"/>
+    <xsd:complexType name="RQI_I01.IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RQI_I01.IN1IN2IN3" type="RQI_I01.IN1IN2IN3.CONTENT"/>
+</xsd:schema>

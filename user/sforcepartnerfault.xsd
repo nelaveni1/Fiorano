@@ -1,0 +1,16 @@
+<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"  xmlns:tns="urn:partner.soap.sforce.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sobject.partner.soap.sforce.com">
+
+            <import namespace="urn:partner.soap.sforce.com"/>
+
+
+            <!-- Dynamic sObject -->
+            <complexType name="sObject">
+                <sequence>
+                    <element name="type"               type="xsd:string"/>
+                    <element name="fieldsToNull"       type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="Id"                 type="tns:ID" nillable="true" />
+                    <any namespace="##targetNamespace" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                </sequence>
+            </complexType>
+
+        </schema>

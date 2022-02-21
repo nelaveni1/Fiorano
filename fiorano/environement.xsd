@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fiorano.com/environment/1.0">
+
+    <xs:element name="target">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="instance" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="instance-properties" minOccurs="0" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <xs:element name="deployment" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:attribute name="nodes" type="xs:string" use="required"/>
+                                                <xs:attribute name="cache" type="xs:boolean" use="optional"
+                                                              default="true"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="configuration-properties" minOccurs="0" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="property" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="name" type="xs:string" use="required"/>
+                                                        <xs:attribute name="encrypt" type="xs:boolean" use="optional" default="false"/>
+                                                        <xs:attribute name="type" use="required">
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:enumeration value="byte"/>
+                                                                    <xs:enumeration value="java.lang.Byte"/>
+                                                                    <xs:enumeration value="short"/>
+                                                                    <xs:enumeration value="java.lang.Short"/>
+                                                                    <xs:enumeration value="int"/>
+                                                                    <xs:enumeration value="java.lang.Integer"/>
+                                                                    <xs:enumeration value="long"/>
+                                                                    <xs:enumeration value="java.lang.Long"/>
+                                                                    <xs:enumeration value="float"/>
+                                                                    <xs:enumeration value="java.lang.Float"/>
+                                                                    <xs:enumeration value="double"/>
+                                                                    <xs:enumeration value="java.lang.Double"/>
+                                                                    <xs:enumeration value="boolean"/>
+                                                                    <xs:enumeration value="java.lang.Boolean"/>
+                                                                    <xs:enumeration value="char"/>
+                                                                    <xs:enumeration value="java.lang.Character"/>
+                                                                    <xs:enumeration value="java.lang.String"/>
+                                                                    <xs:enumeration value="java.io.File"/>
+                                                                    <xs:enumeration value="NamedObject"/>
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:attribute>
+                                                        <xs:attribute name="configurationType" use="optional">
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:enumeration value="component"/>
+                                                                    <xs:enumeration value="resource"/>
+                                                                    <xs:enumeration value="route"/>
+                                                                    <xs:enumeration value="selector"/>
+                                                                    <xs:enumeration value="transformation"/>
+                                                                    <xs:enumeration value="workflow"/>
+                                                                    <xs:enumeration value="runtimearg"/>
+                                                                    <xs:enumeration value="connectionfactory"/>
+                                                                    <xs:enumeration value="misc"/>
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:attribute>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="labelType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="development"/>
+            <xs:enumeration value="qa"/>
+            <xs:enumeration value="staging"/>
+            <xs:enumeration value="production"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema>

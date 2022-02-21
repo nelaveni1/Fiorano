@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="REF_I12.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element minOccurs="0" ref="RF1"/>
+            <xsd:element minOccurs="0" ref="REF_I12.AUTCTD"/>
+            <xsd:element maxOccurs="unbounded" ref="REF_I12.PRDCTD"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I12.IN1IN2IN3"/>
+            <xsd:element minOccurs="0" ref="ACC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DG1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DRG"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I12.PR1AUTCTD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I12.OBRNTEOBXNTE"/>
+            <xsd:element minOccurs="0" ref="REF_I12.PV1PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12" type="REF_I12.CONTENT"/>
+    <xsd:complexType name="REF_I12.AUTCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AUT"/>
+            <xsd:element minOccurs="0" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.AUTCTD" type="REF_I12.AUTCTD.CONTENT"/>
+    <xsd:complexType name="REF_I12.PRDCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.PRDCTD" type="REF_I12.PRDCTD.CONTENT"/>
+    <xsd:complexType name="REF_I12.IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.IN1IN2IN3" type="REF_I12.IN1IN2IN3.CONTENT"/>
+    <xsd:complexType name="REF_I12.PR1AUTCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PR1"/>
+            <xsd:element minOccurs="0" ref="REF_I12.AUTCTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.PR1AUTCTD" type="REF_I12.PR1AUTCTD.CONTENT"/>
+    <xsd:complexType name="REF_I12.OBRNTEOBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I12.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.OBRNTEOBXNTE" type="REF_I12.OBRNTEOBXNTE.CONTENT"/>
+    <xsd:complexType name="REF_I12.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.OBXNTE" type="REF_I12.OBXNTE.CONTENT"/>
+    <xsd:complexType name="REF_I12.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I12.PV1PV2" type="REF_I12.PV1PV2.CONTENT"/>
+</xsd:schema>

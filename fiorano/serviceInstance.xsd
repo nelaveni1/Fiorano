@@ -1,0 +1,203 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="common.xsd"/>
+    <xs:include schemaLocation="portInstance.xsd"/>
+    <xs:include schemaLocation="runtimeargs.xsd"/>
+    <xs:include schemaLocation="connectionFactory.xsd"/>
+
+    <xs:complexType name="serviceInstanceType">
+        <xs:sequence>
+            <xs:element name="service">
+                <xs:complexType>
+                    <xs:attribute name="guid" use="required" type="xs:string"/>
+                    <xs:attribute name="version" use="required" type="xs:float"/>
+                    <xs:attribute name="version-locked" default="true" type="xs:boolean"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="short-description" type="xs:string" minOccurs="0"/>
+            <xs:element name="long-description" type="xs:string" minOccurs="0"/>
+			<xs:element name="useExternalCps" type="xs:boolean" minOccurs="0" default="false"/>
+            <xs:element name="config-file" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="name" use="required" type="xs:string"/>
+                    <xs:attribute name="partiallyConfigured" type="xs:boolean" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="resource-properties" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="resource-property" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent >
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="name" use="required"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="schema-references" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="schema-reference" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:attribute name="namespace" use="required" type="xs:string"/>
+                                <xs:attribute name="location" use="required" type="xs:string"/>
+                                <xs:attribute name="required-at-runtime" use="optional" default="false" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="named-configurations" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="named-configuration" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:attribute name="name" use="required" type="xs:string"/>
+                                <xs:attribute name="configurationType" default="component" use="optional">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="component"/>
+                                            <xs:enumeration value="resource"/>
+                                            <xs:enumeration value="route"/>
+                                            <xs:enumeration value="selector"/>
+                                            <xs:enumeration value="transformation"/>
+                                            <xs:enumeration value="workflow"/>
+                                            <xs:enumeration value="runtimearg"/>
+                                            <xs:enumeration value="connectionfactory"/>
+                                            <xs:enumeration value="misc"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                                <xs:attribute name="configurationID" use="optional" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deployment">
+                <xs:complexType>
+                    <xs:attribute name="nodes" type="xs:string" use="required"/>
+                    <xs:attribute name="cache" default="true" type="xs:boolean" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="execution">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="debug">
+                            <xs:complexType>
+                                <xs:attribute name="enabled" use="required" type="xs:boolean"/>
+                                <xs:attribute name="port" use="optional" default="5000" type="xs:positiveInteger"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="launchOrder-Sequence" minOccurs="0">
+                            <xs:complexType>
+                                <xs:attribute name="sequence" use="optional" default="-1" type="xs:integer"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="stopOrder-Sequence" minOccurs="0">
+                            <xs:complexType>
+                                <xs:attribute name="sequence" use="optional" default="-1" type="xs:integer"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="launch" minOccurs="0">
+                            <xs:complexType>
+                                <xs:attribute name="first-available-node" use="optional" default="true" type="xs:boolean"/>
+                                <xs:attribute name="kill-primary-on-secondary-launch" use="optional" default="true" type="xs:boolean"/>
+                                <xs:attribute name="type" default="1" use="optional">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:integer">
+                                            <xs:enumeration value="0"/>
+                                            <xs:enumeration value="1"/>
+                                            <xs:enumeration value="2"/>
+                                            <xs:enumeration value="4"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <xs:choice>
+                            <xs:element ref="connection-factory-properties" minOccurs="0"/>
+                            <xs:element ref="connection-factory-config-name"/>
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="buffer-limit" use="optional" default="524288" type="xs:long"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inputport-instances" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="inputport-instance" type="inputPortInstanceType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="outputport-instances" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="outputport-instance" type="outputPortInstanceType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logmanager" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="name" use="required" type="xs:string" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="logger" use="required" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logmodules" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="logmodule" type="logmoduleType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+
+            </xs:element>
+
+            <xs:choice>
+                <xs:element ref="runtime-arguments" minOccurs="0"/>
+                <xs:element ref="runtime-arguments-config-name"/>
+            </xs:choice>
+
+            <xs:element name="servicerefs" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="serviceref">
+                            <xs:complexType>
+                                <xs:attribute name="guid" use="required" type="xs:string"/>
+                                <xs:attribute name="version" use="required" type="xs:float"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element name="runtime-arguments-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="connection-factory-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

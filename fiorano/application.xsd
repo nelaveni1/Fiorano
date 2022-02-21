@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="routes.xsd"/>
+    <xs:include schemaLocation="serviceInstance.xsd"/>
+
+    <xs:element name="application" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="display">
+                    <xs:complexType>
+                        <xs:attribute name="categories" use="required" type="xs:string"/>
+                        <xs:attribute name="name" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="creation">
+                    <xs:complexType>
+                        <xs:attribute name="authors" type="xs:string"/>
+                        <xs:attribute name="date" use="required" type="xs:string"/>
+                        <xs:attribute name="schema-version" use="optional" default="1.0" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="type" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="name" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="default"/>
+                                    <xs:enumeration value="b2b"/>
+                                    <xs:enumeration value="mdm"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="sub-type" use="optional">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="user-defined"/>
+                                    <xs:enumeration value="internal"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="short-description" type="xs:string" minOccurs="0"/>
+                <xs:element name="long-description" type="xs:string" minOccurs="0"/>
+                <xs:element name="deployment">
+                    <xs:complexType>
+                        <!--todo: valid values for label-->
+                        <xs:attribute name="label" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Development"/>
+                                    <xs:enumeration value="Testing"/>
+                                    <xs:enumeration value="Staging"/>
+                                    <xs:enumeration value="Production"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="cache" use="optional" default="true" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+		<xs:element name="durableRoute">
+                    <xs:complexType>
+			<xs:attribute name="value" default="Fetch_From_FES" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+						<xs:enumeration value="Fetch_From_FES"/>
+					</xs:restriction>
+				</xs:simpleType>
+		        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+		<xs:element name="deleteDestinationAfterStop">
+                    <xs:complexType>
+			<xs:attribute name="value" default="Fetch_From_FES"use="required" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+						<xs:enumeration value="Fetch_From_FES"/>
+					</xs:restriction>
+				</xs:simpleType>
+		        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="component-launch-order" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="enabled" use="optional" default="false" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="component-stop-order" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="enabled" use="optional" default="false" type="xs:boolean"/>
+                        <xs:attribute name="useReverseComponentLaunchOrder" use="optional" default="false" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="web" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="exposedInterfaces" use="optional" default="0" type="xs:integer"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="application-context" type="schemaType" minOccurs="0"/>
+                <xs:element name="service-instances" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="inst" type="serviceInstanceType" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="remote-inst" type="remoteServiceInstanceType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="routes" minOccurs="0"/>
+                <xs:element name="layout" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="guid" use="required" type="xs:string"/>
+            <xs:attribute name="version" use="required" type="xs:float"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

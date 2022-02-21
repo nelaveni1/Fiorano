@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_2_segments.xsd"/>
+    <xsd:complexType name="ORF_R04.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element maxOccurs="unbounded" ref="ORF_R04.QUERY_RESPONSE"/>
+            <xsd:element maxOccurs="unbounded" ref="ORF_R04.ORDER"/>
+            <xsd:element minOccurs="0" ref="DSC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORF_R04" type="ORF_R04.CONTENT"/>
+    <xsd:complexType name="ORF_R04.QUERY_RESPONSE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="QRD"/>
+            <xsd:element minOccurs="0" ref="QRF"/>
+            <xsd:element minOccurs="0" ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORF_R04.QUERY_RESPONSE" type="ORF_R04.QUERY_RESPONSE.CONTENT"/>
+    <xsd:complexType name="ORF_R04.ORDER.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ORC"/>
+            <xsd:element ref="OBR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element maxOccurs="unbounded" ref="ORF_R04.OBSERVATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORF_R04.ORDER" type="ORF_R04.ORDER.CONTENT"/>
+    <xsd:complexType name="ORF_R04.OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ORF_R04.OBSERVATION" type="ORF_R04.OBSERVATION.CONTENT"/>
+</xsd:schema>

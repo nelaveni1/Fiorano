@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="PRR_PC5.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="ERR"/>
+            <xsd:element minOccurs="0" ref="QAK"/>
+            <xsd:element ref="QRD"/>
+            <xsd:element maxOccurs="unbounded" ref="PRR_PC5.PIDPV1PV2PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5" type="PRR_PC5.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.PIDPV1PV2PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PRR_PC5.PV1PV2"/>
+            <xsd:element maxOccurs="unbounded" ref="PRR_PC5.PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.PIDPV1PV2PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR" type="PRR_PC5.PIDPV1PV2PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.PV1PV2" type="PRR_PC5.PV1PV2.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRB"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.ROLVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.PTHVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.OBXNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.GOLNTEVARROLVAROBXNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.ORCOBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR" type="PRR_PC5.PRBNTEVARROLVARPTHVAROBXNTEGOLNTEVARROLVAROBXNTEORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.ROLVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ROL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.ROLVAR" type="PRR_PC5.ROLVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.PTHVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PTH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.PTHVAR" type="PRR_PC5.PTHVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.OBXNTE" type="PRR_PC5.OBXNTE.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.GOLNTEVARROLVAROBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="GOL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.ROLVAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.GOLNTEVARROLVAROBXNTE" type="PRR_PC5.GOLNTEVARROLVAROBXNTE.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.ORCOBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="PRR_PC5.OBRRXONTEVAROBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.ORCOBRRXONTEVAROBXNTEVAR" type="PRR_PC5.ORCOBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.OBRRXONTEVAROBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element ref="RXO"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PRR_PC5.OBXNTEVAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.OBRRXONTEVAROBXNTEVAR" type="PRR_PC5.OBRRXONTEVAROBXNTEVAR.CONTENT"/>
+    <xsd:complexType name="PRR_PC5.OBXNTEVAR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PRR_PC5.OBXNTEVAR" type="PRR_PC5.OBXNTEVAR.CONTENT"/>
+</xsd:schema>

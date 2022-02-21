@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="OMS_O01.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="OMS_O01.PIDPD1NTEPV1PV2IN1IN2IN3GT1AL1"/>
+            <xsd:element maxOccurs="unbounded" ref="OMS_O01.ORCRQDNTEOBXNTEBLG"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01" type="OMS_O01.CONTENT"/>
+    <xsd:complexType name="OMS_O01.PIDPD1NTEPV1PV2IN1IN2IN3GT1AL1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PD1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="OMS_O01.PV1PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OMS_O01.IN1IN2IN3"/>
+            <xsd:element minOccurs="0" ref="GT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.PIDPD1NTEPV1PV2IN1IN2IN3GT1AL1" type="OMS_O01.PIDPD1NTEPV1PV2IN1IN2IN3GT1AL1.CONTENT"/>
+    <xsd:complexType name="OMS_O01.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.PV1PV2" type="OMS_O01.PV1PV2.CONTENT"/>
+    <xsd:complexType name="OMS_O01.IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.IN1IN2IN3" type="OMS_O01.IN1IN2IN3.CONTENT"/>
+    <xsd:complexType name="OMS_O01.ORCRQDNTEOBXNTEBLG.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="OMS_O01.RQDNTEOBXNTE"/>
+            <xsd:element minOccurs="0" ref="BLG"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.ORCRQDNTEOBXNTEBLG" type="OMS_O01.ORCRQDNTEOBXNTEBLG.CONTENT"/>
+    <xsd:complexType name="OMS_O01.RQDNTEOBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RQD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OMS_O01.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.RQDNTEOBXNTE" type="OMS_O01.RQDNTEOBXNTE.CONTENT"/>
+    <xsd:complexType name="OMS_O01.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OMS_O01.OBXNTE" type="OMS_O01.OBXNTE.CONTENT"/>
+</xsd:schema>

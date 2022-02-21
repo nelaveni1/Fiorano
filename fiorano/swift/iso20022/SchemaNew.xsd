@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:ns2="urn:iso:std:iso:20022:tech:xsd:head.001.001.02" xmlns:ns1="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"/>
+   <xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"/>
+   <xsd:element name="Envelope" type="CustomMsg"/>
+   <xsd:complexType name="CustomMsg">
+      <xsd:sequence>
+         <xsd:element ref="ns2:AppHdr"/>
+         <xsd:element ref="ns1:Document"/>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>
+

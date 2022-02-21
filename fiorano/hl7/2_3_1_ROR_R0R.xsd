@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="ROR_R0R.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="ERR"/>
+            <xsd:element maxOccurs="unbounded" ref="ROR_R0R.QRDQRFPIDNTEORCRXORXRRXC"/>
+            <xsd:element minOccurs="0" ref="DSC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ROR_R0R" type="ROR_R0R.CONTENT"/>
+    <xsd:complexType name="ROR_R0R.QRDQRFPIDNTEORCRXORXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="QRD"/>
+            <xsd:element minOccurs="0" ref="QRF"/>
+            <xsd:element minOccurs="0" ref="ROR_R0R.PIDNTE"/>
+            <xsd:element maxOccurs="unbounded" ref="ROR_R0R.ORCRXORXRRXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ROR_R0R.QRDQRFPIDNTEORCRXORXRRXC" type="ROR_R0R.QRDQRFPIDNTEORCRXORXRRXC.CONTENT"/>
+    <xsd:complexType name="ROR_R0R.PIDNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ROR_R0R.PIDNTE" type="ROR_R0R.PIDNTE.CONTENT"/>
+    <xsd:complexType name="ROR_R0R.ORCRXORXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element ref="RXO"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ROR_R0R.ORCRXORXRRXC" type="ROR_R0R.ORCRXORXRRXC.CONTENT"/>
+</xsd:schema>

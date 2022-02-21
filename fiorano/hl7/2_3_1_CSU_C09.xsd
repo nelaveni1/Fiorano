@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="CSU_C09.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.PIDPD1NTEPV1PV2CSRCSPCSSORCOBROBXORCRXARXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09" type="CSU_C09.CONTENT"/>
+    <xsd:complexType name="CSU_C09.PIDPD1NTEPV1PV2CSRCSPCSSORCOBROBXORCRXARXR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PD1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="CSU_C09.PV1PV2"/>
+            <xsd:element ref="CSR"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.CSPCSSORCOBROBXORCRXARXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.PIDPD1NTEPV1PV2CSRCSPCSSORCOBROBXORCRXARXR" type="CSU_C09.PIDPD1NTEPV1PV2CSRCSPCSSORCOBROBXORCRXARXR.CONTENT"/>
+    <xsd:complexType name="CSU_C09.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.PV1PV2" type="CSU_C09.PV1PV2.CONTENT"/>
+    <xsd:complexType name="CSU_C09.CSPCSSORCOBROBXORCRXARXR.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="CSP"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.CSSORCOBROBXORCRXARXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.CSPCSSORCOBROBXORCRXARXR" type="CSU_C09.CSPCSSORCOBROBXORCRXARXR.CONTENT"/>
+    <xsd:complexType name="CSU_C09.CSSORCOBROBXORCRXARXR.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="CSS"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.ORCOBROBX"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.ORCRXARXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.CSSORCOBROBXORCRXARXR" type="CSU_C09.CSSORCOBROBXORCRXARXR.CONTENT"/>
+    <xsd:complexType name="CSU_C09.ORCOBROBX.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ORC"/>
+            <xsd:element ref="OBR"/>
+            <xsd:element maxOccurs="unbounded" ref="OBX"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.ORCOBROBX" type="CSU_C09.ORCOBROBX.CONTENT"/>
+    <xsd:complexType name="CSU_C09.ORCRXARXR.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ORC"/>
+            <xsd:element maxOccurs="unbounded" ref="CSU_C09.RXARXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.ORCRXARXR" type="CSU_C09.ORCRXARXR.CONTENT"/>
+    <xsd:complexType name="CSU_C09.RXARXR.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXA"/>
+            <xsd:element ref="RXR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CSU_C09.RXARXR" type="CSU_C09.RXARXR.CONTENT"/>
+</xsd:schema>

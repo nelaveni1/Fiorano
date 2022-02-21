@@ -1,0 +1,153 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="common.xsd"/>
+	<xs:include schemaLocation="publisher.xsd"/>
+	<xs:include schemaLocation="subscriber.xsd"/>
+	<xs:include schemaLocation="workflow.xsd"/>
+        <xs:include schemaLocation="messagefilters.xsd"/>
+	<xs:complexType name="outputPortInstanceType">
+		<xs:complexContent>
+			<xs:extension base="portInstanceType">
+				<xs:sequence>
+					<xs:element name="jms">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="jmsType">
+									<xs:sequence>
+                                        <xs:choice>
+                                            <xs:element ref="publisher"/>
+                                            <xs:element ref="publisher-config-name"/>
+                                        </xs:choice>
+                                    </xs:sequence>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+                    <xs:choice>
+                        <xs:element ref="workflow" minOccurs="0"/>
+                        <xs:element ref="workflow-config-name" minOccurs="0"/>
+                    </xs:choice>
+                    <xs:element name="transformation" type="messageTransformationType" minOccurs="0"/>
+                </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="inputPortInstanceType">
+		<xs:complexContent>
+			<xs:extension base="portInstanceType">
+				<xs:sequence>
+					<xs:element name="jms">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="jmsType">
+									<xs:sequence>
+                                        <xs:choice>
+                                            <xs:element ref="subscriber"/>
+                                            <xs:element ref="subscriber-config-name"/>
+                                        </xs:choice>
+                                    </xs:sequence>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element ref="workflow" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="portInstanceType">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="schema" type="schemaType" minOccurs="0"/>
+			<xs:element ref="proxy" minOccurs="0"/>
+			<xs:element name="app-context-action" default="No Action">
+				<xs:simpleType>
+                                	<xs:restriction base="xs:string">
+	                                	<xs:enumeration value="No Action"/>
+						<xs:enumeration value="Store Application Context"/>
+				                <xs:enumeration value="Restore Application Context"/>
+				        </xs:restriction>
+			        </xs:simpleType>
+			</xs:element>
+			<xs:choice>
+                        <xs:element ref="messagefilters" minOccurs="0"/>
+                        <xs:element ref="messagefilters-config-name" minOccurs="0"/>
+                    </xs:choice>
+                       </xs:sequence>
+		<xs:attribute name="name" use="required" type="xs:string"/>
+		<xs:attribute name="request-reply" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="remoteServiceInstanceType">
+		<xs:attribute name="application-guid" use="required" type="xs:string"/>
+		<xs:attribute name="application-version" use="required" type="xs:float"/>
+		<xs:attribute name="application-schema-version" use="optional" default="1.0" type="xs:string"/>
+		<xs:attribute name="inst-name" use="required" type="xs:string"/>
+		<xs:attribute name="name" use="required" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="jmsType">
+		<xs:sequence>
+			<xs:element ref="destination"/>
+			<xs:element name="authentication" minOccurs="0">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="authenticationType">
+							<xs:attribute name="security-manager" type="xs:string"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="client-id" type="xs:string"/>
+		<xs:attribute name="enabled" default="true" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="authenticationType">
+		<!-- todo This must not optional, but making optional to allow curent applications to support-->
+		<xs:attribute name="password" default="password" type="xs:string"/>
+		<!-- xs:attribute name="security-manager" type="xs:string"/ -->
+		<xs:attribute name="user" default="anonymous" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="proxy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="authentication" type="authenticationType"/>
+			</xs:sequence>
+
+			<!-- These attributes must be available, but making these optional to support existing applications -->
+			<xs:attribute name="url"  type="xs:string"/>
+			<xs:attribute name="used"  type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="destination">
+		<xs:complexType>
+			<xs:attribute name="custom" type="xs:boolean"/>
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="type" >
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="publisher-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="subscriber-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="workflow-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="messagefilters-config-name">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

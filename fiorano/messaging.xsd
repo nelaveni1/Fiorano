@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="messages">
+        <xs:complexType>
+            <xs:attribute name="compress" type="xs:boolean"/>
+            <xs:attribute name="encrypt" type="xs:boolean"/>
+            <xs:attribute name="durable" type="xs:boolean"/>
+            <xs:attribute name="durabilitySource" default="Applciation" use="required">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Applciation"/>
+				<xs:enumeration value="Route"/>
+			</xs:restriction>
+		</xs:simpleType>
+	    </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

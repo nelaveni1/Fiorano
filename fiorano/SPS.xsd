@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Argument" type="argumentType"/>
+    <xsd:element name="Author" type="xsd:string"/>
+    <xsd:element name="Category" type="xsd:string"/>
+    <xsd:element name="Certificate">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Signer" type="xsd:string"/>
+                <xsd:element name="IssuedTo" type="xsd:string"/>
+                <xsd:element name="ValidFrom" type="xsd:string"/>
+                <xsd:element name="ValidTo" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CertifiedActivity" type="xsd:string"/>
+    <xsd:element name="CompatibleWith" type="xsd:string"/>
+    <xsd:element name="CreationDate" type="createDateType"/>
+    <xsd:element name="Deployment">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="1" maxOccurs="unbounded" ref="OS"/>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ServiceDependency"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="Resources"/>
+            </xsd:sequence>
+            <xsd:attribute name="deploymentStage" type="deploymentType" use="required"/>
+            <xsd:attribute name="isAutoInstallable" type="xsd:boolean" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Description" type="xsd:string"/>
+    <xsd:element name="ErrPort" type="errPortType"/>
+    <xsd:element name="EventModules">
+         <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Module" type="eventModuleType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Executable" type="xsd:string"/>
+    <xsd:element name="Execution">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ExecutionDir"/>
+                <xsd:element ref="Executable"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="InMemoryLaunchImpl"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="Monitor"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="EventModules"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="LogModules"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="StatusTracking"/>
+                <xsd:element ref="RuntimeArguments"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="Param"/>
+            </xsd:sequence>
+            <xsd:attribute name="inMemoryLaunchDefault" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isAutoLaunchAvailable" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isExternalLaunchAvailable" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isFailoverSupported" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isInMemoryLaunchable" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="manualLaunchDefault" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="transaction" type="xsd:string" use="required"/>
+            <xsd:attribute name="type" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExecutionDir" type="xsd:string"/>
+    <xsd:element name="Icon" type="xsd:string"/>
+    <xsd:element name="InMemoryLaunchImpl" type="xsd:string"/>
+    <xsd:element name="InPort" type="portType"/>
+    <xsd:element name="JavaClass" type="xsd:string"/>
+    <xsd:element name="Label" type="xsd:string"/>
+    <xsd:element name="LargeIcon" type="xsd:string"/>
+    <xsd:element name="LogModules">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Module" type="logModuleType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LongDescription" type="xsd:string"/>
+    <xsd:element name="Monitor">
+         <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Module" type="eventModuleType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Name" type="xsd:string"/>
+    <xsd:element name="OS" type="xsd:string"/>
+    <xsd:element name="OnServiceKill">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ServiceGUID"/>
+				<xsd:element name="Version" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OutPort" type="portType"/>
+    <xsd:element name="Param" type="paramType"/>
+    <xsd:element name="PortDescriptor">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="InPort"/>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OutPort"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="ErrPort"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Resource">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Name"/>
+				<xsd:element minOccurs="0" maxOccurs="1" ref="OS"/>
+            </xsd:sequence>
+            <xsd:attribute name="requiredForConfiguration" type="xsd:boolean" use="required"/>
+            <xsd:attribute name="requiredForExecution" type="xsd:boolean" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Resources">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="Resource"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RuntimeArguments">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="UserDefinedPropertySheet"/>
+                <xsd:element ref="Argument" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="isVariableArgumentsSupported" type="xsd:boolean" use="required"/>
+            <xsd:attribute name="supportsRuntimeArgsChange" type="xsd:boolean" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SecurityAttributes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Certificate" minOccurs="0" maxOccurs="1"/>
+                <xsd:element ref="CertifiedActivity" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceDependency">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ServiceGUID"/>
+                <xsd:element ref="Version"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceDescriptor">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ServiceHeader"/>
+                <xsd:element ref="Deployment"/>
+                <xsd:element ref="Execution"/>
+                <xsd:element ref="PortDescriptor"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="OnServiceKill"/>
+                <xsd:element ref="SecurityAttributes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceGUID" type="xsd:string"/>
+    <xsd:element name="ServiceHeader">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Name"/>
+                <xsd:element ref="ServiceGUID"/>
+                <xsd:element ref="Author"/>
+                <xsd:element ref="CreationDate"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="Icon"/>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="LargeIcon"/>
+                <xsd:element ref="Version"/>
+                <xsd:element ref="Label"/>
+                <xsd:element ref="CompatibleWith" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="Category"  minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="ShortDescription"/>
+                <xsd:element ref="LongDescription"/>
+            </xsd:sequence>
+            <xsd:attribute name="canLaunchCPSInProcess" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isErrorHandlingSupported" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="isLicensed" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="lastUpdatedAt" type="xsd:string" use="optional"/>
+            <xsd:attribute name="launchable" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="native" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ShortDescription" type="xsd:string"/>
+    <xsd:element name="StatusTracking">
+         <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="Status" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:attribute name="isSupported" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UserDefinedPropertySheet">
+	    <xsd:complexType>
+			<xsd:simpleContent>
+	            <xsd:extension base="xsd:string">
+		            <xsd:attribute name="name" type="xsd:string" use="required"/>
+		            <xsd:attribute name="isConfigurationRequired" type="xsd:boolean" use="optional"/>
+	            </xsd:extension>
+	        </xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+    <xsd:element name="Version" type="xsd:float"/>
+    <xsd:element name="XSD" type="xsd:string"/>
+
+    <!-- [Types Defined Here] -->
+    <xsd:complexType name="argumentType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="isRequired" type="xsd:boolean" use="optional"/>
+                <xsd:attribute name="name" type="xsd:string" use="required"/>
+                <xsd:attribute name="type" type="xsd:string" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:simpleType name="createDateType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="((((0[1-9])|((1|2)[0-9])|(3(0|1)))/(01|03|05|07|08|10|12))|(((0[1-9])|((1|2)[0-9])|(30))/(04|06|05|09|11))|(02/((0[1-9])|((1|2)[0-9]))))/([0-9]{4})"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="deploymentType">
+      <xsd:restriction base="xsd:string">
+        <xsd:pattern value="([pP][rR][oO][dD][uU][cC][tT][iI][oO][nN])|([qQ][aA])|([dD][eE][vV][eE][lL][oO][pP][mM][eE][nN][tT])"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="errPortType">
+        <xsd:sequence>
+            <xsd:element ref="Name"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="Description"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="JavaClass"/>
+            <xsd:choice>
+                <xsd:element minOccurs="0" maxOccurs="1" ref="XSD"/>
+                <xsd:element minOccurs="0" maxOccurs="1" name="StandardXSD">
+                    <xsd:complexType/>
+                </xsd:element>
+            </xsd:choice>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="Param"/>
+        </xsd:sequence>
+        <xsd:attribute name="isSyncRequestType" type="xsd:boolean" use="optional"/>
+    </xsd:complexType>
+    <xsd:complexType name="eventModuleType">
+        <xsd:attribute name="defaultTraceLevel" type="xsd:integer" use="required"/>
+        <xsd:attribute name="maxTraceLevel" type="xsd:integer" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="logModuleType">
+        <xsd:attribute name="defaultTraceLevel" type="xsd:string" use="required"/>
+        <xsd:attribute name="maxTraceLevel" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="paramType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="portType">
+        <xsd:sequence>
+            <xsd:element ref="Name"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="Description"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="JavaClass"/>
+            <xsd:element minOccurs="0" maxOccurs="1" ref="XSD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="Param"/>
+        </xsd:sequence>
+        <xsd:attribute name="isSyncRequestType" type="xsd:boolean" use="optional"/>
+    </xsd:complexType>
+
+</xsd:schema>
+
+

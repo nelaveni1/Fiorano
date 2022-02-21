@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="RPA_I08.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="RF1"/>
+            <xsd:element minOccurs="0" ref="RPA_I08.AUTCTD"/>
+            <xsd:element maxOccurs="unbounded" ref="RPA_I08.PRDCTD"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RPA_I08.IN1IN2IN3"/>
+            <xsd:element minOccurs="0" ref="ACC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DG1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DRG"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+            <xsd:element maxOccurs="unbounded" ref="RPA_I08.PR1AUTCTD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RPA_I08.OBRNTEOBXNTE"/>
+            <xsd:element minOccurs="0" ref="RPA_I08.PV1PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08" type="RPA_I08.CONTENT"/>
+    <xsd:complexType name="RPA_I08.AUTCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AUT"/>
+            <xsd:element minOccurs="0" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.AUTCTD" type="RPA_I08.AUTCTD.CONTENT"/>
+    <xsd:complexType name="RPA_I08.PRDCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.PRDCTD" type="RPA_I08.PRDCTD.CONTENT"/>
+    <xsd:complexType name="RPA_I08.IN1IN2IN3.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.IN1IN2IN3" type="RPA_I08.IN1IN2IN3.CONTENT"/>
+    <xsd:complexType name="RPA_I08.PR1AUTCTD.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PR1"/>
+            <xsd:element minOccurs="0" ref="RPA_I08.AUTCTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.PR1AUTCTD" type="RPA_I08.PR1AUTCTD.CONTENT"/>
+    <xsd:complexType name="RPA_I08.OBRNTEOBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RPA_I08.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.OBRNTEOBXNTE" type="RPA_I08.OBRNTEOBXNTE.CONTENT"/>
+    <xsd:complexType name="RPA_I08.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.OBXNTE" type="RPA_I08.OBXNTE.CONTENT"/>
+    <xsd:complexType name="RPA_I08.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RPA_I08.PV1PV2" type="RPA_I08.PV1PV2.CONTENT"/>
+</xsd:schema>

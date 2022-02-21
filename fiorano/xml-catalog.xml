@@ -1,0 +1,8 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+	<public publicId="-//Fiorano Software Technologies Pvt. Ltd.//DTD FileSchema 1.0//EN"
+			uri="fileschema_1_0.dtd"/>
+	<public publicId="-//mendelson.de//DTD for m-e-c eagle//EN"
+			uri="m-e-c.dtd"/>
+    <uri name="http://www.fiorano.com/fesb/activity/fault"
+         uri="fault.xsd"/>
+</catalog>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:simpleType name="ST">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="TS">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CM_MSG">
+        <xsd:sequence>
+            <xsd:element ref="CM_MSG.1"/>
+            <xsd:element ref="CM_MSG.2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="ID">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CM_MSG.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ID"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CM_MSG.1" type="CM_MSG.1.CONTENT"/>
+    <xsd:complexType name="CM_MSG.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ID"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CM_MSG.2" type="CM_MSG.2.CONTENT"/>
+    <xsd:simpleType name="NM">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CQ">
+        <xsd:sequence>
+            <xsd:element ref="CQ.1"/>
+            <xsd:element ref="CQ.2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CQ.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="NM"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CQ.1" type="CQ.1.CONTENT"/>
+    <xsd:complexType name="CQ.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CQ.2" type="CQ.2.CONTENT"/>
+    <xsd:simpleType name="SI">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CK">
+        <xsd:sequence>
+            <xsd:element ref="CK.1"/>
+            <xsd:element ref="CK.2"/>
+            <xsd:element ref="CK.3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CK.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="NM"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CK.1" type="CK.1.CONTENT"/>
+    <xsd:complexType name="CK.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="NM"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CK.2" type="CK.2.CONTENT"/>
+    <xsd:complexType name="CK.3.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ID"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CK.3" type="CK.3.CONTENT"/>
+    <xsd:complexType name="PN">
+        <xsd:sequence>
+            <xsd:element ref="PN.1"/>
+            <xsd:element ref="PN.2"/>
+            <xsd:element ref="PN.3"/>
+            <xsd:element ref="PN.4"/>
+            <xsd:element ref="PN.5"/>
+            <xsd:element ref="PN.6"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PN.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.1" type="PN.1.CONTENT"/>
+    <xsd:complexType name="PN.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.2" type="PN.2.CONTENT"/>
+    <xsd:complexType name="PN.3.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.3" type="PN.3.CONTENT"/>
+    <xsd:complexType name="PN.4.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.4" type="PN.4.CONTENT"/>
+    <xsd:complexType name="PN.5.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.5" type="PN.5.CONTENT"/>
+    <xsd:complexType name="PN.6.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="PN.6" type="PN.6.CONTENT"/>
+    <xsd:simpleType name="DT">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="AD">
+        <xsd:sequence>
+            <xsd:element ref="AD.1"/>
+            <xsd:element ref="AD.2"/>
+            <xsd:element ref="AD.3"/>
+            <xsd:element ref="AD.4"/>
+            <xsd:element ref="AD.5"/>
+            <xsd:element ref="AD.6"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AD.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.1" type="AD.1.CONTENT"/>
+    <xsd:complexType name="AD.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.2" type="AD.2.CONTENT"/>
+    <xsd:complexType name="AD.3.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.3" type="AD.3.CONTENT"/>
+    <xsd:complexType name="AD.4.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.4" type="AD.4.CONTENT"/>
+    <xsd:complexType name="AD.5.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.5" type="AD.5.CONTENT"/>
+    <xsd:complexType name="AD.6.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="AD.6" type="AD.6.CONTENT"/>
+    <xsd:simpleType name="TN">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CM">
+        <xsd:sequence/>
+    </xsd:complexType>
+    <xsd:complexType name="CN">
+        <xsd:sequence>
+            <xsd:element ref="CN.1"/>
+            <xsd:element ref="CN.2"/>
+            <xsd:element ref="CN.3"/>
+            <xsd:element ref="CN.4"/>
+            <xsd:element ref="CN.5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CN.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CN.1" type="CN.1.CONTENT"/>
+    <xsd:complexType name="CN.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CN.2" type="CN.2.CONTENT"/>
+    <xsd:complexType name="CN.3.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CN.3" type="CN.3.CONTENT"/>
+    <xsd:complexType name="CN.4.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CN.4" type="CN.4.CONTENT"/>
+    <xsd:complexType name="CN.5.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CN.5" type="CN.5.CONTENT"/>
+    <xsd:simpleType name="TX">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:complexType name="CE">
+        <xsd:sequence>
+            <xsd:element ref="CE.1"/>
+            <xsd:element ref="CE.2"/>
+            <xsd:element ref="CE.3"/>
+            <xsd:element ref="CE.4"/>
+            <xsd:element ref="CE.5"/>
+            <xsd:element ref="CE.6"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CE.1.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ID"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.1" type="CE.1.CONTENT"/>
+    <xsd:complexType name="CE.2.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.2" type="CE.2.CONTENT"/>
+    <xsd:complexType name="CE.3.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.3" type="CE.3.CONTENT"/>
+    <xsd:complexType name="CE.4.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.4" type="CE.4.CONTENT"/>
+    <xsd:complexType name="CE.5.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.5" type="CE.5.CONTENT"/>
+    <xsd:complexType name="CE.6.CONTENT">
+        <xsd:simpleContent>
+            <xsd:extension base="ST"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="CE.6" type="CE.6.CONTENT"/>
+    <xsd:simpleType name="GenericPrimitive">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+</xsd:schema>

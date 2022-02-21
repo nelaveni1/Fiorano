@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_segments.xsd"/>
+    <xsd:complexType name="PPP_PCC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PPP_PCC.PATIENT_VISIT"/>
+            <xsd:element maxOccurs="unbounded" ref="PPP_PCC.PATHWAY"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC" type="PPP_PCC.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PATIENT_VISIT.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PATIENT_VISIT" type="PPP_PCC.PATIENT_VISIT.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PATHWAY.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PTH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.PATHWAY_ROLE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.PROBLEM"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PATHWAY" type="PPP_PCC.PATHWAY.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PATHWAY_ROLE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ROL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PATHWAY_ROLE" type="PPP_PCC.PATHWAY_ROLE.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PROBLEM.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRB"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.PROBLEM_ROLE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.PROBLEM_OBSERVATION"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GOA"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.ORDER"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PROBLEM" type="PPP_PCC.PROBLEM.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PROBLEM_ROLE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ROL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PROBLEM_ROLE" type="PPP_PCC.PROBLEM_ROLE.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.PROBLEM_OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.PROBLEM_OBSERVATION" type="PPP_PCC.PROBLEM_OBSERVATION.CONTENT"/>
+    <xsd:complexType name="GOA.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="GOL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.GOAL_ROLE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.GOAL_OBSERVATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GOA" type="GOA.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.GOAL_ROLE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ROL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.GOAL_ROLE" type="PPP_PCC.GOAL_ROLE.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.GOAL_OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.GOAL_OBSERVATION" type="PPP_PCC.GOAL_OBSERVATION.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.ORDER.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="PPP_PCC.ORDER_DETAIL"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.ORDER" type="PPP_PCC.ORDER.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.ORDER_DETAIL.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PPP_PCC.ORDER_OBSERVATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.ORDER_DETAIL" type="PPP_PCC.ORDER_DETAIL.CONTENT"/>
+    <xsd:complexType name="PPP_PCC.ORDER_OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="VAR"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PPP_PCC.ORDER_OBSERVATION" type="PPP_PCC.ORDER_OBSERVATION.CONTENT"/>
+</xsd:schema>

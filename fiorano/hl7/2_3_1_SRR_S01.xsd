@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="SRR_S01.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="ERR"/>
+            <xsd:element minOccurs="0" ref="SRR_S01.SCHNTEPIDPV1PV2DG1RGSAISNTEAIGNTEAILNTEAIPNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01" type="SRR_S01.CONTENT"/>
+    <xsd:complexType name="SRR_S01.SCHNTEPIDPV1PV2DG1RGSAISNTEAIGNTEAILNTEAIPNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="SCH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SRR_S01.PIDPV1PV2DG1"/>
+            <xsd:element maxOccurs="unbounded" ref="SRR_S01.RGSAISNTEAIGNTEAILNTEAIPNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.SCHNTEPIDPV1PV2DG1RGSAISNTEAIGNTEAILNTEAIPNTE" type="SRR_S01.SCHNTEPIDPV1PV2DG1RGSAISNTEAIGNTEAILNTEAIPNTE.CONTENT"/>
+    <xsd:complexType name="SRR_S01.PIDPV1PV2DG1.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DG1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.PIDPV1PV2DG1" type="SRR_S01.PIDPV1PV2DG1.CONTENT"/>
+    <xsd:complexType name="SRR_S01.RGSAISNTEAIGNTEAILNTEAIPNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RGS"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SRR_S01.AISNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SRR_S01.AIGNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SRR_S01.AILNTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SRR_S01.AIPNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.RGSAISNTEAIGNTEAILNTEAIPNTE" type="SRR_S01.RGSAISNTEAIGNTEAILNTEAIPNTE.CONTENT"/>
+    <xsd:complexType name="SRR_S01.AISNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AIS"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.AISNTE" type="SRR_S01.AISNTE.CONTENT"/>
+    <xsd:complexType name="SRR_S01.AIGNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AIG"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.AIGNTE" type="SRR_S01.AIGNTE.CONTENT"/>
+    <xsd:complexType name="SRR_S01.AILNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AIL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.AILNTE" type="SRR_S01.AILNTE.CONTENT"/>
+    <xsd:complexType name="SRR_S01.AIPNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AIP"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SRR_S01.AIPNTE" type="SRR_S01.AIPNTE.CONTENT"/>
+</xsd:schema>

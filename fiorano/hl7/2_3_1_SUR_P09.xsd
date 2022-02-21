@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="SUR_P09.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element maxOccurs="unbounded" ref="SUR_P09.FACPSHPDCPSHFACPDCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SUR_P09" type="SUR_P09.CONTENT"/>
+    <xsd:complexType name="SUR_P09.FACPSHPDCPSHFACPDCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="FAC"/>
+            <xsd:element maxOccurs="unbounded" ref="SUR_P09.PSHPDC"/>
+            <xsd:element ref="PSH"/>
+            <xsd:element maxOccurs="unbounded" ref="SUR_P09.FACPDCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SUR_P09.FACPSHPDCPSHFACPDCNTE" type="SUR_P09.FACPSHPDCPSHFACPDCNTE.CONTENT"/>
+    <xsd:complexType name="SUR_P09.PSHPDC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PSH"/>
+            <xsd:element ref="PDC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SUR_P09.PSHPDC" type="SUR_P09.PSHPDC.CONTENT"/>
+    <xsd:complexType name="SUR_P09.FACPDCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="FAC"/>
+            <xsd:element ref="PDC"/>
+            <xsd:element ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SUR_P09.FACPDCNTE" type="SUR_P09.FACPDCNTE.CONTENT"/>
+</xsd:schema>

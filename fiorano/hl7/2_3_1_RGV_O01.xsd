@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="RGV_O01.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.PIDNTEAL1PV1PV2"/>
+            <xsd:element maxOccurs="unbounded" ref="RGV_O01.ORCRXONTERXRRXCNTERXERXRRXCRXGRXRRXCOBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01" type="RGV_O01.CONTENT"/>
+    <xsd:complexType name="RGV_O01.PIDNTEAL1PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.PV1PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.PIDNTEAL1PV1PV2" type="RGV_O01.PIDNTEAL1PV1PV2.CONTENT"/>
+    <xsd:complexType name="RGV_O01.PV1PV2.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.PV1PV2" type="RGV_O01.PV1PV2.CONTENT"/>
+    <xsd:complexType name="RGV_O01.ORCRXONTERXRRXCNTERXERXRRXCRXGRXRRXCOBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.RXONTERXRRXCNTE"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.RXERXRRXC"/>
+            <xsd:element maxOccurs="unbounded" ref="RGV_O01.RXGRXRRXCOBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.ORCRXONTERXRRXCNTERXERXRRXCRXGRXRRXCOBXNTE" type="RGV_O01.ORCRXONTERXRRXCNTERXERXRRXCRXGRXRRXCOBXNTE.CONTENT"/>
+    <xsd:complexType name="RGV_O01.RXONTERXRRXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXO"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.NTERXRRXCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.RXONTERXRRXCNTE" type="RGV_O01.RXONTERXRRXCNTE.CONTENT"/>
+    <xsd:complexType name="RGV_O01.NTERXRRXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" ref="RGV_O01.RXCNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.NTERXRRXCNTE" type="RGV_O01.NTERXRRXCNTE.CONTENT"/>
+    <xsd:complexType name="RGV_O01.RXCNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="RXC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.RXCNTE" type="RGV_O01.RXCNTE.CONTENT"/>
+    <xsd:complexType name="RGV_O01.RXERXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.RXERXRRXC" type="RGV_O01.RXERXRRXC.CONTENT"/>
+    <xsd:complexType name="RGV_O01.RXGRXRRXCOBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXG"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+            <xsd:element maxOccurs="unbounded" ref="RGV_O01.OBXNTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.RXGRXRRXCOBXNTE" type="RGV_O01.RXGRXRRXCOBXNTE.CONTENT"/>
+    <xsd:complexType name="RGV_O01.OBXNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RGV_O01.OBXNTE" type="RGV_O01.OBXNTE.CONTENT"/>
+</xsd:schema>

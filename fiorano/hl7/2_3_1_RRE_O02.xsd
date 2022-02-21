@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_1_segments.xsd"/>
+    <xsd:complexType name="RRE_O02.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="MSA"/>
+            <xsd:element minOccurs="0" ref="ERR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" ref="RRE_O02.PIDNTEORCRXERXRRXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRE_O02" type="RRE_O02.CONTENT"/>
+    <xsd:complexType name="RRE_O02.PIDNTEORCRXERXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="RRE_O02.PIDNTE"/>
+            <xsd:element maxOccurs="unbounded" ref="RRE_O02.ORCRXERXRRXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRE_O02.PIDNTEORCRXERXRRXC" type="RRE_O02.PIDNTEORCRXERXRRXC.CONTENT"/>
+    <xsd:complexType name="RRE_O02.PIDNTE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRE_O02.PIDNTE" type="RRE_O02.PIDNTE.CONTENT"/>
+    <xsd:complexType name="RRE_O02.ORCRXERXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="ORC"/>
+            <xsd:element minOccurs="0" ref="RRE_O02.RXERXRRXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRE_O02.ORCRXERXRRXC" type="RRE_O02.ORCRXERXRRXC.CONTENT"/>
+    <xsd:complexType name="RRE_O02.RXERXRRXC.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="RXE"/>
+            <xsd:element maxOccurs="unbounded" ref="RXR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RXC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RRE_O02.RXERXRRXC" type="RRE_O02.RXERXRRXC.CONTENT"/>
+</xsd:schema>

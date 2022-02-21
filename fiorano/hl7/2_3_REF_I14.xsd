@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_segments.xsd"/>
+    <xsd:complexType name="REF_I14.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element minOccurs="0" ref="RF1"/>
+            <xsd:element minOccurs="0" ref="REF_I14.AUTHORIZATION"/>
+            <xsd:element maxOccurs="unbounded" ref="REF_I14.PROVIDER"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NK1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I14.INSURANCE"/>
+            <xsd:element minOccurs="0" ref="ACC"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DG1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DRG"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="AL1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I14.PROCEDURE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I14.RESULTS"/>
+            <xsd:element minOccurs="0" ref="REF_I14.VISIT"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14" type="REF_I14.CONTENT"/>
+    <xsd:complexType name="REF_I14.AUTHORIZATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="AUT"/>
+            <xsd:element minOccurs="0" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.AUTHORIZATION" type="REF_I14.AUTHORIZATION.CONTENT"/>
+    <xsd:complexType name="REF_I14.PROVIDER.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PRD"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CTD"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.PROVIDER" type="REF_I14.PROVIDER.CONTENT"/>
+    <xsd:complexType name="REF_I14.INSURANCE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.INSURANCE" type="REF_I14.INSURANCE.CONTENT"/>
+    <xsd:complexType name="REF_I14.PROCEDURE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PR1"/>
+            <xsd:element minOccurs="0" ref="REF_I14.AUTHORIZATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.PROCEDURE" type="REF_I14.PROCEDURE.CONTENT"/>
+    <xsd:complexType name="REF_I14.RESULTS.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBR"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="REF_I14.OBSERVATION"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.RESULTS" type="REF_I14.RESULTS.CONTENT"/>
+    <xsd:complexType name="REF_I14.OBSERVATION.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="OBX"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="NTE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.OBSERVATION" type="REF_I14.OBSERVATION.CONTENT"/>
+    <xsd:complexType name="REF_I14.VISIT.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="REF_I14.VISIT" type="REF_I14.VISIT.CONTENT"/>
+</xsd:schema>

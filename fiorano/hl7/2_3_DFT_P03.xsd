@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_3_segments.xsd"/>
+    <xsd:complexType name="DFT_P03.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="EVN"/>
+            <xsd:element ref="PID"/>
+            <xsd:element minOccurs="0" ref="PD1"/>
+            <xsd:element minOccurs="0" ref="PV1"/>
+            <xsd:element minOccurs="0" ref="PV2"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DB1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="OBX"/>
+            <xsd:element maxOccurs="unbounded" ref="DFT_P03.FINANCIAL"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DG1"/>
+            <xsd:element minOccurs="0" ref="DRG"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="GT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DFT_P03.INSURANCE"/>
+            <xsd:element minOccurs="0" ref="ACC"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DFT_P03" type="DFT_P03.CONTENT"/>
+    <xsd:complexType name="DFT_P03.FINANCIAL.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="FT1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="DFT_P03.FINANCIAL_PROCEDURE"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DFT_P03.FINANCIAL" type="DFT_P03.FINANCIAL.CONTENT"/>
+    <xsd:complexType name="DFT_P03.FINANCIAL_PROCEDURE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="PR1"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ROL"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DFT_P03.FINANCIAL_PROCEDURE" type="DFT_P03.FINANCIAL_PROCEDURE.CONTENT"/>
+    <xsd:complexType name="DFT_P03.INSURANCE.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="IN1"/>
+            <xsd:element minOccurs="0" ref="IN2"/>
+            <xsd:element minOccurs="0" ref="IN3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DFT_P03.INSURANCE" type="DFT_P03.INSURANCE.CONTENT"/>
+</xsd:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE catalog
+  PUBLIC "-//OASIS//DTD XML Catalogs V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+   <uri name="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" uri="camt.052.001.02.xsd"/>
+   <uri name="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" uri="camt.053.001.02.xsd"/>
+   <uri name="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.03" uri="pacs.008.001.03.xsd"/>
+   <uri name="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.03" uri="pacs.009.001.03.xsd"/>
+</catalog>

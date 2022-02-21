@@ -1,0 +1,78 @@
+<!ELEMENT FileLayout (FileSections)>
+<!ELEMENT FileSections (GlobalParsingInfo, Record+)>
+<!ATTLIST FileSections
+	name CDATA #IMPLIED
+	description CDATA #IMPLIED
+>
+
+<!ELEMENT GlobalParsingInfo (RecordDelimiter?,DefaultFieldDelimiter?)>
+<!ATTLIST GlobalParsingInfo
+	comment-start-identifier CDATA #IMPLIED
+	comment-end-identifier CDATA #IMPLIED
+	ignore-lines-start-lineno CDATA #IMPLIED
+	ignore-lines-end-lineno CDATA #IMPLIED
+	default-escape-character CDATA #IMPLIED
+>
+
+<!ELEMENT RecordDelimiter (Delimiter)>
+<!ELEMENT DefaultFieldDelimiter (Delimiter)>
+
+<!ELEMENT Record (RecordIdentifier, FieldDelimiter?, RecordContent)>
+<!ATTLIST Record
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	minOccurs CDATA #IMPLIED
+	maxOccurs CDATA #REQUIRED
+	length 	CDATA #IMPLIED
+	childCount CDATA #IMPLIED
+	ignoreChildCount CDATA #IMPLIED
+	xmlType (Element|None) "Element"
+	parsingType (DELIMITED|POSITIONAL) #REQUIRED
+>
+<!ELEMENT RecordIdentifier EMPTY>
+<!ATTLIST RecordIdentifier 
+	type (FieldValue|RecordLength|ChildCount|None) "None"
+	value CDATA #IMPLIED
+>
+<!ELEMENT FieldDelimiter (Delimiter)>
+
+<!ELEMENT Delimiter (#PCDATA)>
+<!ATTLIST Delimiter
+	type (custom-delimiter|DefaultFieldDelimiter) #REQUIRED
+	escapeChar CDATA #IMPLIED
+	escapeCharType (Character|default-escape-character) #REQUIRED
+	reference CDATA #IMPLIED
+>
+<!ELEMENT RecordContent (Record | Field)*>
+<!ELEMENT Field (DataType?,CommentStartCharacter?, CommentEndCharacter?)>
+<!ATTLIST Field
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	xmlType (Element|Attribute|None) "Element"
+	defaultValue CDATA #IMPLIED
+	validValue CDATA #IMPLIED
+	mapIfNull (YES|NO) "NO"
+	alignment (LEFT|RIGHT) "LEFT"
+	minlength CDATA #IMPLIED
+	maxlength CDATA #IMPLIED
+	startPosition CDATA #IMPLIED
+	endPosition CDATA #IMPLIED
+	trimspaces (Both|Leading|Trailing|None) "None"
+	wrapcharacter CDATA #IMPLIED
+	paddingcharacter CDATA #IMPLIED
+	validcharacters CDATA #IMPLIED
+	invalidcharacters CDATA #IMPLIED
+>
+
+<!ELEMENT DataType (#PCDATA)>
+<!ATTLIST DataType
+	format CDATA #IMPLIED
+>
+<!ELEMENT CommentStartCharacter (#PCDATA)>
+<!ATTLIST CommentStartCharacter
+	escape CDATA #IMPLIED
+>
+<!ELEMENT CommentEndCharacter (#PCDATA)>
+<!ATTLIST CommentEndCharacter
+	escape CDATA #IMPLIED
+>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:hl7-org:v2xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v2xml">
+    <xsd:include schemaLocation="2_2_segments.xsd"/>
+    <xsd:complexType name="ADT_A34.CONTENT">
+        <xsd:sequence>
+            <xsd:element ref="MSH"/>
+            <xsd:element ref="EVN"/>
+            <xsd:element ref="PID"/>
+            <xsd:element ref="MRG"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ADT_A34" type="ADT_A34.CONTENT"/>
+</xsd:schema>
